@@ -44,6 +44,8 @@ The pictures with marker often get more noise after being processed. The images 
 
 
 Examples for this error (processed picture first):
+
+
 ![output_img_0611.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0611.png)
 ![img_0611.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/img_0611.png)
 ![output_img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0551.png)
