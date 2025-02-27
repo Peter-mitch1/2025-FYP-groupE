@@ -13,7 +13,7 @@ While annotating the images, we generally agreed on the classification of hair p
 
 
 Going to the images we have seen I saw the hair removal algorithm struggle more specifically with white/grey haired images classified as hairy.
-![output_img_0713.png]("C:\Users\Peter\Documents\Data Science\Semester 2 - Projects in Data Science\Mandatory Assignment\2025-FYP-groupE\result\output_img_0713.png")output_img_0713, output_img_0642 & output_img_0686 are good examples of this. If compared to output_img_0573 which is an image also with a lot of hair but darker and of a balding man.
+![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0713WH.png) are good examples of this. If compared to output_img_0573 which is an image also with a lot of hair but darker and of a balding man.
 It can be seen that algorithm has a better time processing this. All of these were conducted underneath the parameters of :
 
 
