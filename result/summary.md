@@ -31,11 +31,12 @@ By adjusting the morphology it can be seen that the 'tophat' function for white 
 However for darker hairs 'blackhat' is better.
 
 blackhat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshold=2)
-![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0573BH.png)
+![output_img_0573.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0573BH.png)
 
 
 tophat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshold=2)
-![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0573WH.png)
+
+![output_img_0573.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0573WH.png)
 
 
 
