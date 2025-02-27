@@ -12,13 +12,16 @@ In this project, we implement a hair removal method based on morphological opera
 While annotating the images, we generally agreed on the classification of hair presence (None, Some, A Lot). However, there were still some mismatches in ratings. The differences were mostly due to varying strictness in defining 'having hair.' Some team members classified an image as 'No Hair' only if there was absolutely no visible hair, while others were more lenient and allowed for a small presence of hair as long as it did not obstruct the lesion significantly.
 
 
-Going to the images we have seen I saw the hair removal algorithm struggle more specifically with white/grey haired images classified as hairy.
-![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0713WH.png) are good examples of this. If compared to output_img_0573 which is an image also with a lot of hair but darker and of a balding man.
-It can be seen that algorithm has a better time processing this. All of these were conducted underneath the parameters of :
-
-
+For the images provided to the team img_524 - img_723, the hair removal algorithm struggle more specifically with white/grey haired images, classified as hairy.
+The code was run as follows below:
 apply hair removal
 blackhat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshold=2)
+
+![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0713BH.png)
+
+apply hair removal
+tophat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshold=2)
+![output_img_0713.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0713WH.png)
 
 
 Moving forward it was best to adjust and develop higher contrast in the image such that these hairs could be removed.
