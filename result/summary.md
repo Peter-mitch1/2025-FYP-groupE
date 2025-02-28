@@ -10,8 +10,11 @@ Medical image analysis plays a crucial role in diagnosing skin conditions, such 
 In this project, we implement a hair removal method based on morphological operations and inpainting techniques using OpenCV. The method detects hair strands, creates a mask, and fills in the obstructed areas using surrounding pixel information.
 
 main.py holds the original file and main_test.py has the built in Image Data Loader. To run main_test.py correctly ensure the file paths are setup with the correct folders:
+
 data directory (data_dir) should have the file path for the folder of the unprocessed images. 
+
 save directory (save_dir) should have the file path for the folder where the processed images will be saved.
+
 instructions can be found as comments in the file itself.
 
 While annotating the images, we generally agreed on the classification of hair presence (None, Some, A Lot). However, there were still some mismatches in ratings. The differences were mostly due to varying strictness in defining 'having hair.' Some team members classified an image as 'No Hair' only if there was absolutely no visible hair, while others were more lenient and allowed for a small presence of hair as long as it did not obstruct the lesion significantly.
