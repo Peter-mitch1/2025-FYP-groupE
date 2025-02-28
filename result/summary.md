@@ -35,6 +35,12 @@ tophat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshol
 https://en.wikipedia.org/wiki/Top-hat_transform
 
 In OpenCV black top-hat is known as 'blackhat' and white top-hat is known as 'tophat'.
+These functions are used in the inpaint_util.py which is called through main.py and main_test.py respectively.
+
+tophat function is tophat = cv.morphologyEx(img, cv.MORPH_TOPHAT, kernel)
+blackhat function is blackhat = cv.morphologyEx(img, cv.MORPH_BLACKHAT, kernel)
+
+OpenCV has great documentation https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html for other transformations that can be applied.
 By adjusting the morphology it can be seen that the 'tophat' function for white hairs of rating 2, results in a clearer image.
 However for darker hairs 'blackhat' is better.
 
