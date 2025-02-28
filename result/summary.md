@@ -18,7 +18,7 @@ save directory (save_dir) should have the file path for the folder where the pro
 instructions can be found as comments in the file itself.
 
 While annotating the images, we generally agreed on the classification of hair presence (None, Some, A Lot). However, there were still some mismatches in ratings. The differences were mostly due to varying strictness in defining 'having hair.' Some team members classified an image as 'No Hair' only if there was absolutely no visible hair, while others were more lenient and allowed for a small presence of hair as long as it did not obstruct the lesion significantly. Below you can see an example of an image type that would cause most disagreement: there is some hair,so it is not clear 0,but it doesn't seem to block the view of the turmoil.
-![Description](https://raw.githubusercontent.com/username/repository/main/images/photo.png)
+![Description](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/img_0582.png?raw=true)
 
 
 For the images provided to the team img_524 - img_723, the default setting of the hair removal algorithm struggled more specifically with white/grey haired images, classified as hairy.
