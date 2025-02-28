@@ -6,6 +6,7 @@ from util.img_util import readImageFile, saveImageFile
 from util.inpaint_util import removeHair
 
 # Define directories
+#Currently setup for windows where r'filepath' ensure that underscores and correct backslashes
 data_dir = r"C:\Users\Peter\Documents\Data Science\Semester 2 - Projects in Data Science\Mandatory Assignment\data\data"
 save_dir = r"C:\Users\Peter\Documents\Data Science\Semester 2 - Projects in Data Science\Mandatory Assignment\2025-FYP-groupE\result"
 
@@ -16,7 +17,7 @@ os.makedirs(save_dir, exist_ok=True)
 last_processed_image = None
 
 # Iterate over the range of image numbers
-for i in range(524, 724):  # Covers img_0524.png to img_0723.png
+for i in range(524, 724):  # Covers img_0524.png to img_0723.png (the range group E was requested to cover)
     file_name = f"img_{i:04d}.png"  # Format with leading zeros
     file_path = join(data_dir, file_name)
 
