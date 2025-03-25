@@ -56,7 +56,7 @@ tophat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshol
 
 
 
-The pictures with marker often get more noise after being processed. The images become more blurry therefore, the lesions appear more faded and less distinguishable on the skin. One reason for this could be that the marker causes bias in the algorithm’s colour detection. It could be a possible way forward to tackle down this problem by training the algorithm to recognise the marker as well.
+We also discovered that the pictures with marker often gets more noise after being processed. The images becomes more blurry therefore, the lesions appear more faded and less distinguishable on the skin. One reason for this could be that the marker causes bias in the algorithm’s colour detection. It could be a possible way forward to tackle down this problem by training the algorithm to recognise the marker as well.
 
 
 Examples for this error (processed picture first):
@@ -68,7 +68,15 @@ Examples for this error (processed picture first):
 ![img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/img_0551.png)
 
 
+One possible approach to fix this error is to first identify if there is a marker by finding the color of possible markers, which in this dataset most often appears as black and darkblue. Instead of converting the image to grayscale, we can convert it to HSV and define a suitable HSV range to distinguish the marked area. For blue markers, an effective range would be:
 
+Lower bound: [100, 150, 0]
+
+Upper bound: [140, 255, 255]
+
+If a marker is found, we can use the inpaint function to replace it with a background color that matches the person’s skin tone, just like in the hair removal process.
+
+However, when the lesion and the marker have similar colors, it will be difficult for the algorithm to differentiate between them. And the same if the color of the pen is not known by the program. In such cases, alternative methods can be explored, such as analyzing the shape and compactnes of both the lesion and the marker. Since lesions typically have irregular, compact shapes, whereas markers tend to form thin lines or not compact circular patterns, we could use this distinction to identify and remove the marker while preserving the lesion. 
 
 
 
