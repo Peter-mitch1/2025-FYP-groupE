@@ -17,7 +17,9 @@ save directory (save_dir) should have the file path for the folder where the pro
 
 instructions can be found as comments in the file itself.
 
-While annotating the images, we generally agreed on the classification of hair presence (None, Some, A Lot). However, there were still some mismatches in ratings. The differences were mostly due to varying strictness in defining 'having hair.' Some team members classified an image as 'No Hair' only if there was absolutely no visible hair, while others were more lenient and allowed for a small presence of hair as long as it did not obstruct the lesion significantly.
+While annotating the images, we generally agreed on the classification of hair presence (None, Some, A Lot). However, there were still some mismatches in ratings. The differences were mostly due to varying strictness in defining 'having hair.' Some team members classified an image as 'No Hair' only if there was absolutely no visible hair, while others were more lenient and allowed for a small presence of hair as long as it did not obstruct the lesion significantly. Below you can see an example of an image type that would cause most disagreement: there is some hair,so it is not clear 0,but it doesn't seem to block the view of the turmoil.
+
+![Description](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/img_0582.png?raw=true)
 
 
 For the images provided to the team img_524 - img_723, the default setting of the hair removal algorithm struggled more specifically with white/grey haired images, classified as hairy.
@@ -52,9 +54,11 @@ tophat, thresh, img_out = removeHair(img_rgb, img_gray, kernel_size=10, threshol
 
 ![output_img_0573.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0573WH.png)
 
+We could, moving forward, make the program regonize if the hair is more black or more white, and then use "blackhat" and "tophat" functions respectively. By doing that, we get the best possible outcomes from the pictures with both the white hair and black hair. 
 
 
-The pictures with marker often get more noise after being processed. The images become more blurry therefore, the lesions appear more faded and less distinguishable on the skin. One reason for this could be that the marker causes bias in the algorithm’s colour detection. It could be a possible way forward to tackle down this problem by training the algorithm to recognise the marker as well.
+
+We discovered that that pictures with marker often get more noise after being processed. The images become more blurry therefore, the lesions appear more faded and less distinguishable on the skin. One reason for this could be that the marker causes bias in the algorithm’s colour detection. It could be a possible way forward to tackle down this problem by training the algorithm to recognise the marker as well.
 
 
 Examples for this error (processed picture first):
@@ -65,26 +69,13 @@ Examples for this error (processed picture first):
 ![output_img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0551.png)
 ![img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/img_0551.png)
 
-## Michael’s Resubmission Contributions
+One possible approach to fix this error is to first identify if there is a marker by finding the color of possible markers, which in this dataset most often appears as black and darkblue. Instead of converting the image to grayscale, we can convert it to HSV and define a suitable HSV range to distinguish the marked area. For blue markers, an effective range would be:
 
-### Annotations
-I added my hair ratings (Rating_05) for all images (`img_0524.png` to `img_0723.png`) in `result.csv`. I observed that approximately 50% of the images had no hair (0), 35% had some hair (1), and 15% had a lot (2), aligning with the group’s trend but noting discrepancies.
+Lower bound: [100, 150, 0]
 
-### Hair Segmentation Enhancement
-I modified `inpaint_util.py` to support both `blackhat` and `tophat` transforms, using `tophat` for white/grey hair (e.g., `img_0525.png`, rated 2). My script (`main_michael.py`) processes `img_0524.png` to `img_0543.png`:
-- **Good Result**: `img_0525.png` - `tophat` removed thick hair effectively (see `result/michael_output_img_0525.png`).
-- **Bad Result**: `img_0526.png` (rating 1) - Thin hair persisted, possibly due to marker interference.
-Visualization in `result/michael_visualization.jpg`.
+Upper bound: [140, 255, 255]
 
+If a marker is found, we can use the inpaint function to replace it with a background color that matches the person’s skin tone, just like in the hair removal process.
 
-
-
-
-
-
-
-
-
-
-
+However, when the lesion and the marker have similar colors, it will be difficult for the algorithm to differentiate between them. And the same if the color of the pen is not known by the program. In such cases, alternative methods can be explored, such as analyzing the shape and compactnes of both the lesion and the marker. Since lesions typically have irregular, compact shapes, whereas markers tend to form thin lines or not compact circular patterns, we could use this distinction to identify and remove the marker while preserving the lesion. 
 
