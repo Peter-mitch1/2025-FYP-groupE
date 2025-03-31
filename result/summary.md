@@ -65,7 +65,16 @@ Examples for this error (processed picture first):
 ![output_img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/output_img_0551.png)
 ![img_0551.png](https://github.com/Peter-mitch1/2025-FYP-groupE/blob/main/data/img_0551.png)
 
+## Michael’s Resubmission Contributions
 
+### Annotations
+I added my hair ratings (Rating_05) for all images (`img_0524.png` to `img_0723.png`) in `result.csv`. I observed that approximately 50% of the images had no hair (0), 35% had some hair (1), and 15% had a lot (2), aligning with the group’s trend but noting discrepancies.
+
+### Hair Segmentation Enhancement
+I modified `inpaint_util.py` to support both `blackhat` and `tophat` transforms, using `tophat` for white/grey hair (e.g., `img_0525.png`, rated 2). My script (`main_michael.py`) processes `img_0524.png` to `img_0543.png`:
+- **Good Result**: `img_0525.png` - `tophat` removed thick hair effectively (see `result/michael_output_img_0525.png`).
+- **Bad Result**: `img_0526.png` (rating 1) - Thin hair persisted, possibly due to marker interference.
+Visualization in `result/michael_visualization.jpg`.
 
 
 
